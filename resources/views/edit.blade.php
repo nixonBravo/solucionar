@@ -7,8 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="{{url('tipo/persona', $tipo->id)}}" method="post">
         @csrf
+        @method('put')
         <input type="button" value="Actualizar" value="{{$tipo->tipo}}">
         <input type="text" name="tipo">
     </form>

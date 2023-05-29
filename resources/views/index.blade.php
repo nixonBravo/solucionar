@@ -9,7 +9,7 @@
 <body>
 
     <div style="margin-bottom: 25px">
-        <form action="" method="post">
+        <form action="{{url('persona')}}" method="post">
             @csrf
             <input type="text" name="tipo" placeholder="Tipo">
             <input type="button" value="Guardar">

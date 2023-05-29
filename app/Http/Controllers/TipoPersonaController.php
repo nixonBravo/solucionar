@@ -16,6 +16,7 @@ class TipoPersonaController extends Controller
         $tipos = new TipoPersona();
         $tipos->tipo = $request->tipo;
         $tipos->save();
+        //return redirect('/tipo/persona');
         return back();
     }
 
