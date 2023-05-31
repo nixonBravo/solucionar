@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
-    
-    
+<body>   
+    <li><a href="{{url('/')}}">HOME</a></li>
     @foreach ($users as $u)
         <h4>Nombre: {{$u->name}}</h4>
         <h4>Correo: {{$u->email}}</h4>

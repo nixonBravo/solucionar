@@ -7,6 +7,7 @@
     <title>Computacion</title>
 </head>
 <body>
+    <li><a href="{{url('/')}}">HOME</a></li>
     <h1> Carrera Computacion </h1>
 </body>
 </html>

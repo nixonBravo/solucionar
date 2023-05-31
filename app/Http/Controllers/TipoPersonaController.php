@@ -9,21 +9,22 @@ class TipoPersonaController extends Controller
 {
     public function getTipo(){
         $tipos = TipoPersona::where('estado', true)->get();
-        return view('index', compact('tipos'));
+        return view ('index', compact('tipos'));
     }
 
     public function store(Request $request){
-        $tipos = new TipoPersona();
-        $tipos->tipo = $request->tipo;
-        $tipos->save();
-        //return redirect('/tipo/persona');
-        return back();
+        $tipo= new TipoPersona();
+        $tipo->tipo = $request->tipo;
+        $tipo->save();
+       // return back();
+       //return redirect()->route('persona');
+       return redirect('/tipo/persona');
     }
 
     public function delete($id){
         $tipo = TipoPersona::find($id);
         if($tipo){
-            $tipo->estado = false;
+            $tipo->estado=false;
             $tipo->save();
         }
         return back();
@@ -32,14 +33,14 @@ class TipoPersonaController extends Controller
     public function update($id, Request $request){
         $tipo = TipoPersona::find($id);
         if($tipo){
-            $tipo->tipo = $request->tipo;
+            $tipo->tipo=$request->tipo;
             $tipo->save();
         }
-        return back();
+        return redirect('/tipo/persona');
     }
 
     public function datosEditar($id){
         $tipo = TipoPersona::find($id);
-        return view('tipoPersona.edit', compact('tipo'));
+        return view('edit', compact('tipo'));
     }
 }

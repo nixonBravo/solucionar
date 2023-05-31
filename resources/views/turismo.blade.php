@@ -7,6 +7,7 @@
     <title>Turismo</title>
 </head>
 <body>
+    <li><a href="{{url('/')}}">HOME</a></li>
     <h1> Carrera Turismo </h1>
 </body>
 </html>

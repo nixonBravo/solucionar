@@ -7,45 +7,47 @@
     <title>Document</title>
 </head>
 <body>
+    <li><a href="{{url('/')}}">HOME</a></li>
 
     <div style="margin-bottom: 25px">
-        <form action="{{url('persona')}}" method="post">
+        <form action="{{ url ('persona')}}" method="post">
             @csrf
             <input type="text" name="tipo" placeholder="Tipo">
-            <input type="button" value="Guardar">
+            <input type="submit" value="Guardar">
         </form>
     </div>
 
+
     <table border="1">
         <thead>
-            <tr>
-                <td>#</td>
-                <td>Tipo</td>
-                <td>Acciones</td>
+            <tr> 
+                <td> # </td>
+                <td> Tipo </td>
+                <td> Acciones </td>
             </tr>
         </thead>
         <tbody>
             @foreach ($tipos as $item)
                 <tr>
-                    <td>{{$loop->index + 1}}</td>
-                    <td>{{$item->tipo}}</td>
+                    <td> {{ $loop->index + 1 }}</td>
+                    <td> {{ $item->tipo }}</td>
                     <td>
-                        <form action="{{url('tipo/persona/editar/'), $item->id}}" method="get">
+                        
+                        <form action="{{url('tipo/persona/editar',$item->id)}}" method="get">
                             @csrf
-                            @method('put')
                             <button>Editar</button>
                         </form>
+                  
 
-                        <form action="{{url('tipo/persona/'), $item->id}}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button>Eliminar</button>
+                        <form action="{{url('tipo/persona',$item->id)}}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button>Elimnar</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
 </body>
 </html>

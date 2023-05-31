@@ -7,11 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <li><a href="{{url('/')}}">HOME</a></li>
+    <li><a href="{{url('/tipo/persona')}}">Tipos Persona</a></li>
+    <h1>:: EDITAR DATOS ::</h1>
     <form action="{{url('tipo/persona', $tipo->id)}}" method="post">
         @csrf
-        @method('put')
-        <input type="button" value="Actualizar" value="{{$tipo->tipo}}">
-        <input type="text" name="tipo">
-    </form>
+        @method('PUT')
+        <input type="text" name="tipo" value="{{$tipo->tipo}}" >
+        <button type="submit">Editar</button>
+    </form> 
 </body>
 </html>
